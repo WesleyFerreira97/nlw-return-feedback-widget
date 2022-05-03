@@ -1,6 +1,9 @@
 import { CloseButton } from "./CloseButton";
+import { useState } from "react";
 
-const Buttons = {
+type FeedbackType = keyof typeof feedbackTypes
+
+const feedbackTypes = {
     BUG: {
         title: "Reportar um bug",
         image: {
@@ -26,6 +29,8 @@ const Buttons = {
 }
 
 export function Widgetform() {
+    const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null);
+
     return (
         <div className="bg-zinc-900 p-4 relative rounded-2xl mb-4 flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
             <header>
@@ -35,15 +40,13 @@ export function Widgetform() {
             </header>
 
             <div className="flex py-8 gap-2 w-full">
-                {Object.entries(Buttons).map(([key, value]) => {
+                {Object.entries(feedbackTypes).map(([key, value]) => {
                     return (
                         <>
-                            {console.log(key)}
-                            {console.log(value, 'value')}
                             <button
                                 key={key}
                                 className="bg-zinc-800 rounded-lg py-5 w-24 flex-1 flex flex-col items-center gap-2 border-2 border-zinc-800 hover:border-violet-500 focus:border-violet-500 focus:outline-none"
-                                onClick={() => console.log('clicado')}
+                                onClick={() => setFeedbackType(key as FeedbackType)}
                                 type="button"
                             >
                                 <img src={value.image.source} alt={value.image.alt} />
