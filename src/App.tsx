@@ -1,11 +1,11 @@
 import { useState } from 'react'
-
+import { FeedbackWidget } from './components/widget'
 
 function App() {
 
   return (
     <>
-      <button>The button</button>
+      <FeedbackWidget />
     </>
   )
 }
