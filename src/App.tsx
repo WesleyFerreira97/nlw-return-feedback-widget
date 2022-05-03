@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FeedbackWidget } from './components/widget'
+import { FeedbackWidget } from './components/FeedbackWidget'
 
 function App() {
 
