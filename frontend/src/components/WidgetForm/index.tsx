@@ -2,6 +2,9 @@ import { useState } from "react";
 import { FeedbackTypeStep } from "./Steps/FeedbackTypeStep";
 import { FeedbackContentStep } from "./Steps/FeedbackContentStep";
 import { FeedbackSucessStep } from "./Steps/FeedbackSucessStep";
+import BugIcon from '../../assets/img/bug.png';
+import FeedbackIcon from '../../assets/img/feedback.png';
+import QuestionIcon from '../../assets/img/question.png';
 
 export type FeedbackType = keyof typeof feedbackTypes
 
@@ -9,21 +12,21 @@ export const feedbackTypes = {
     BUG: {
         title: "Problemas",
         image: {
-            source: "https://img.icons8.com/color/48/000000/bug.png",
+            source: BugIcon,
             alt: "Reportar um bug"
         }
     },
     FEEDBACK: {
         title: "Enviar feedback",
         image: {
-            source: "https://img.icons8.com/color/48/000000/feedback.png",
+            source: FeedbackIcon,
             alt: "Enviar feedback"
         }
     },
     OTHER: {
         title: "Outro",
         image: {
-            source: "https://img.icons8.com/color/48/000000/question-mark.png",
+            source: QuestionIcon,
             alt: "Outros"
         }
     }
