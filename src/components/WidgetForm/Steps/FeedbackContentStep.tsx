@@ -1,7 +1,8 @@
-import { ArrowLeft, Camera } from 'phosphor-react';
-import React from 'react'
+import { ArrowLeft } from 'phosphor-react';
+import React, { useState } from 'react'
 import { FeedbackType, feedbackTypes } from '..';
 import { CloseButton } from '../../CloseButton';
+import { ScreenshotButton } from '../ScreenshotButton';
 
 interface FeedbackContentStepProps {
     feedbackType: FeedbackType;
@@ -10,6 +11,8 @@ interface FeedbackContentStepProps {
 
 export function FeedbackContentStep({ feedbackType, onRestartFeedback }: FeedbackContentStepProps) {
     const feedbackTypeInfo = feedbackTypes[feedbackType];
+    const [screenshot, setScreenshot] = useState<string | null>(null);
+    console.log(screenshot);
 
     return (
         <>
@@ -36,13 +39,11 @@ export function FeedbackContentStep({ feedbackType, onRestartFeedback }: Feedbac
                 />
             </form>
 
-            <footer className='flex gap-2'>
-                <button
-                    type="button"
-                    className="p-2 bg-zinc-800 rounded-md border-transparent hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 transition-colors duration-300 ease-in-out"
-                >
-                    <Camera className='w-6 h-6' />
-                </button>
+            <footer className='flex gap-2 mt-2'>
+                <ScreenshotButton
+                    screenshot={screenshot}
+                    onScreenshotTook={setScreenshot}
+                />
 
                 <button
                     type='submit'
