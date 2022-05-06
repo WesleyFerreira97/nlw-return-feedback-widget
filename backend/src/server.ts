@@ -15,7 +15,6 @@ var transport = nodemailer.createTransport({
     }
 });
 
-
 app.post('/feedbacks', async (req, res) => {
     const { type, comment, screenshot } = req.body;
 
