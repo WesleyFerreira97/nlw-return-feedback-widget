@@ -4,7 +4,7 @@ import { prisma } from './prisma';
 
 export const routes = express.Router()
 
-var transport = nodemailer.createTransport({
+const transport = nodemailer.createTransport({
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
@@ -24,11 +24,14 @@ routes.post('/feedbacks', async (req, res) => {
         }
     })
 
-    transport.sendMail({
+    await transport.sendMail({
         from: "Equipe Feedback <oi@equipefeedback.com",
-        to: 'Wesley Ferreira <wesleyfc08@gmail.com>',
+        to: 'Wesley Ferreira <wesley@gmail.com>',
         subject: 'Novo feedback',
-        html: '<p>Corpo do email</p>'
+        html: [
+            `<p>Tipo ${type}</p>`,
+            `<p>${comment}</p>`
+        ].join('\n')
     })
 
     return res.status(201).json({ data: feedback });
