@@ -5,6 +5,7 @@ import { useFonts, Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/
 
 import { theme } from './src/theme';
 import { Widget } from './src/components/Widget';
+import 'react-native-gesture-handler';
 
 export default function App() {
 
@@ -26,12 +27,12 @@ export default function App() {
       backgroundColor: theme.colors.background
     }}>
       <Text>Open up App.tsx to start working on your app!</Text>
-      <Widget />
       <StatusBar
         style="light"
         backgroundColor='transparent'
         translucent
       />
+      <Widget />
     </View>
   );
 }
