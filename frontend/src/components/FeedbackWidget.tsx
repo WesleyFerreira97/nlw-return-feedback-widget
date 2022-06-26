@@ -10,7 +10,6 @@ export function FeedbackWidget() {
                 <Widgetform />
             </Popover.Panel>
 
-
             <Popover.Button className="bg-violet-600 text-white px-3 rounded-full h-12 flex items-center group">
                 <ChatTeardropDots className='w-6 h-6' />
 

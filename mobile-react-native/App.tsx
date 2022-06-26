@@ -13,9 +13,12 @@ export default function App() {
     Inter_500Medium
   });
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
+  // Fix error
+  // if (!fontsLoaded) {
+  //   return <AppLoading />;
+  // }
+
+  console.log(AppLoading);
 
   return (
     <View style={{
